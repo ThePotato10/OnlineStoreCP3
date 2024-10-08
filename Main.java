@@ -1,5 +1,7 @@
 import java.util.Date;
 
+// By JD Peppelman, 10-7-24
+// Code that implements an online store that sells two items
 public class Main {
     // Your tests go here! I expect you to make sure various parts of your program
     // work.
