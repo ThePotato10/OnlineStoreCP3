@@ -1,27 +1,36 @@
-/*Implement the following functionality into the store:
+import java.util.ArrayList;
 
-  instance variables: 
-    profit: how much money the store has made
-    items:  instance variable (could be an array or LinkedList or ArrayList of one of the other classes)
+public class Store {
+    private int profit;
+    private ArrayList<ItemForSale> items = new ArrayList<ItemForSale>();
 
-  methods:
-    showItems: displays all items available for sale
-    addItem: adds an item for sale
-    sellItem(itemName): removes the item from the store and adds its price to profit
-    creator(itemName): displays who created the item in question
+    public void showItems() {
+        for (int i = 0; i < items.size(); i++) {
+            System.out.print(items.get(i).toString() + " ");
+        }
+    }
 
-    You will need to include the following information to be stored in the inheritance heiarchy using the other classes:
-      name of thing being sold
-      price for things that are on sale
-      names of creators of movies and books
-      date of birth of book authors
-      date that things are placed on sale
-      duration of movies
-      publisher of books
+    public void addItem(ItemForSale item) {
+        items.add(item);
+    }
 
-    Where these variables are stored and how to name them is up to you!
-*/
-public class Store
-{
+    public void sellItem(ItemForSale item) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).toString().equals(item.toString())) {
+                
+                profit += items.get(i).getPrice();
+                items.remove(i);
 
+                return;
+            }
+        }
+    }
+
+    public String creator(ItemForSale item) {
+        return item.getCreator();
+    }
+
+    public int getProfit() {
+        return profit;
+    }
 }
